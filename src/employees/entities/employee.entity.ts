@@ -10,5 +10,7 @@ export class Employee {
  lastName: string;
  @Column('text')
  phoneNumber: string;
+ @Column('text')
+ email: string;
 }
 
