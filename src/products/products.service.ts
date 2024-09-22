@@ -12,8 +12,9 @@ export class ProductsService {
     @InjectRepository(Product)
   private productRepository: Repository<Product>
 ){}
-  create(createProductDto: CreateProductDto) {
-    const product = this.productRepository.create(createProductDto)
+  async create(createProductDto: CreateProductDto) {
+    const product = this.productRepository.create(createProductDto);
+    await this.productRepository.save(product); // Falta guardar el producto en la BD
     return product;
   }
 
@@ -30,7 +31,7 @@ export class ProductsService {
   }
 
   findByProvider(id: string) {
-    const productsFound = this.products.filter((product) => product.provider == id)
+   const productsFound = this.products.filter((product) => product.provider == id)
     if(!productsFound) throw new NotFoundException()
     return productsFound;
   }
