@@ -18,7 +18,6 @@ export class EmployeesService {
 
   }
   
-
   findAll() {
     return this.employeeRepository.find();
   }
