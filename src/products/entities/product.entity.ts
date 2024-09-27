@@ -1,5 +1,5 @@
 import { Provider } from "src/providers/entities/provider.entity";
-import { Column, ManyToOne, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, ManyToOne, Entity, PrimaryGeneratedColumn, JoinColumn } from "typeorm";
 
 @Entity()
 export class Product {
@@ -12,5 +12,8 @@ export class Product {
     @Column({type: "int"})
     countSeal: number;
     @ManyToOne(() => Provider, (provider) => provider.products)
+    @JoinColumn({
+        name: "providerId",
+    })
     provider: Provider
 }
