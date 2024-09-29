@@ -20,6 +20,14 @@ async create(createEmployeeDto: CreateEmployeeDto){
     return this.employeeRepository.find();
   }
 
+  findByLocation(id: number) {
+    return this.employeeRepository.findBy({
+      location: {
+        locationId: id
+      }
+    })
+  }
+
   findOne(id: string) {
     return this.employeeRepository.findOneBy({
       employeeId: id
