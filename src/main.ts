@@ -3,7 +3,11 @@ import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, {
+    cors: {
+      origin: "localhost:3000"
+    }
+  });
   const config = new DocumentBuilder()
   .setTitle('Ocso API')
   .setDescription('API for ocso management')
@@ -17,7 +21,7 @@ SwaggerModule.setup('api', app, document);
     forbidNonWhitelisted: true,
     transform: true,
   }))
-  await app.listen(3000);
+  await app.listen(4000);
 }
 bootstrap();
  

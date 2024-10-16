@@ -6,6 +6,7 @@ export class CreateProviderDto extends Provider {
   @ApiProperty()
   @IsString()
   @MaxLength(100)
+  
   providerName: string;
 
   @ApiProperty()
