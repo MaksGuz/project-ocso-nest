@@ -14,7 +14,7 @@ export class ProductsService {
 ){}
   async create(createProductDto: CreateProductDto) {
     const product = this.productRepository.create(createProductDto);
-    await this.productRepository.save(product); // Falta guardar el producto en la BD
+    await this.productRepository.save(product); 
     return product;
   }
 
