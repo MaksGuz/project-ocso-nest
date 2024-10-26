@@ -23,7 +23,15 @@ export class ProvidersService {
   findOne(id: string) {
     return this.providerRepository.findOneBy({
       providerId: id,
-    });
+    })
+  }
+
+  async findOneByName(name: string){
+    const provider = await this.providerRepository.findBy({
+    providerName: Like(`%${name}%`)
+    })
+    if (!provider) throw new NotFoundException()
+      return provider;
   }
 
   async update(id: string, updateProviderDto: UpdateProviderDto) {
@@ -40,14 +48,9 @@ export class ProvidersService {
   remove(id: string) {
     this.providerRepository.delete({
       providerId: id,
-    });
-  }
-
-  async findOneByName(name: string){
-    const provider = await this.providerRepository.findBy({
-    providerName: Like(`%${name}%`)
     })
-    if (!provider) throw new NotFoundException()
-      return provider;
+    return {
+      message: "Provider deleted"
+    }
   }
 }

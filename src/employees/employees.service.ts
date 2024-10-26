@@ -29,10 +29,10 @@ async create(createEmployeeDto: CreateEmployeeDto){
   }
 
   findOne(id: string) {
-    return this.employeeRepository.findOneBy({
+    const employee = this.employeeRepository.findOneBy({
       employeeId: id
     })
-    return Employee;
+    return employee;
   }
 
   async update(id: string, updateEmployeeDto: UpdateEmployeeDto) {
