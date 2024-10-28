@@ -1,4 +1,4 @@
-import { IsEmail, IsNumber, IsObject, IsOptional, IsString, MaxLength } from "class-validator";
+import { IsEmail, IsNumber, IsOptional, IsString, MaxLength } from "class-validator";
 import { Manager } from "../entities/manager.entity";
 import { Location } from "src/locations/entities/location.entity";
 import { ApiProperty } from "@nestjs/swagger";
@@ -28,7 +28,7 @@ export class CreateManagerDto extends Manager {
     })
     managerPhoneNumber: string;
     @ApiProperty()
-    @IsObject()
+    @IsNumber()
     @IsOptional()
     location: Location;
 }
