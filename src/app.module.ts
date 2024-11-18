@@ -10,6 +10,7 @@ import { RegionsModule } from './regions/regions.module';
 import { AuthModule } from './auth/auth.module';
 import { JwtModule } from '@nestjs/jwt';
 import { JWT_KEY, EXPIRES_IN } from './auth/constants/jwt.constants';
+import { AwsModule } from './aws/aws.module';
 
 
 @Module({
@@ -27,7 +28,7 @@ import { JWT_KEY, EXPIRES_IN } from './auth/constants/jwt.constants';
           synchronize: true,
   }), 
   EmployeesModule, 
-  ProductsModule, ProvidersModule, ManagersModule, LocationsModule, RegionsModule, AuthModule,
+  ProductsModule, ProvidersModule, ManagersModule, LocationsModule, RegionsModule, AuthModule, AwsModule,
 ],
 })
 export class AppModule {}
